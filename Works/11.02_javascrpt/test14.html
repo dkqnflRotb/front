@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test14.html</title>
+  <script>
+    'use strich'
+
+    function fCheck(aaa){
+      let su1 = document.myform.su1.value;
+      let su2 = myform.su2.value;
+      if(aaa==1){
+        let res = parseInt(su1)+parseInt(su2);
+        alert("두수의 합? " + res);
+      }
+      else if(aaa==2){
+        let res = parseInt(su1)-parseInt(su2);
+        alert("두수의 뺼샘? " + res);
+      }
+      else if(aaa==3){
+        let res = parseInt(su1)*parseInt(su2);
+        alert("두수의 곱셈? " + res);
+      }
+      else{
+        let res = parseInt(su1)/parseInt(su2);
+        alert("두수의 나누셈? " + res);
+      }
+      myform.submit();
+    }
+  </script>
+</head>
+<body>
+  <h2>사칙연산 계산하기</h2>
+  <form name="myform" method="get" action="#">
+    
+    <p>
+      <label for="su1" >수1</label>:
+      <input type="text" name="su1" id="su1" autofocus required />
+    </p>
+    <p>
+      <label for="su2" >수2</label>:
+      <input type="text" name="su2" id="su2" required />
+    </p>
+    <p>
+      <input type="button" value="덧셈" onclick="fCheck(1)"/>
+      <input type="button" value="뺄셈" onclick="fCheck(2)"/>
+      <input type="button" value="곱셈" onclick="fCheck(3)"/>
+      <input type="button" value="나누셈" onclick="fCheck(4)"/>
+      <input type="submit" value="전송" />
+      <input type="reset" value="리셋"/>
+    </p>
+  </form>
+</body>
+</html>
