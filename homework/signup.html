@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>signup.html</title>
+  <style>
+    fieldset{
+      width: 250px;
+      margin: 0 auto;
+    }
+    form{
+      padding: 30px;
+    }
+  </style>
+
+</head>
+<body>
+  <div class ="container">
+    <fieldset>
+      <legend>회원가입</legend>
+      <form name="myform" method="get" action="#">
+        <div>아이디:<input type="text" name="mid" id="mid" autofocus placeholder="아이디를 입력하세요(5~15자리)"/></div>
+        <div>비밀번호:<input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력하세요"/></div>
+        <div>성명:<input type="text" name="irm" id="irm"  placeholder="성명를 입력하세요(2~20자리)"/></div>
+        <div>전화번호:<input type="text" name="tel" id="tel"  placeholder="전화번호를 입력하세요"/></div>
+        <div>이메일:<input type="text" name="email" id="email" placeholder="이메일을 입력하세요"/></div>
+        <br/>
+        <div><input type="button" value="회원가입" onclick="input()"/></div>
+      </form>
+    </fieldset>
+  </div>
+  <script>
+    'use strict';
+
+    function input(){
+      const regex1 = /\w{5,15}/g;
+      const regex2 = /\w[!@#$%^&*()~`]/g;
+      const regex3 = /[가-힣a-zA-Z]{2,20}/gi;
+      const regex4 = /[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}/g; 
+      const regex5 = /[a-z0-9]+@[a-z]+\.[a-z]+/gi;
+
+      let mid = document.getElementById("mid").value;
+      let pwd = document.getElementById("pwd").value;
+      let irm = document.getElementById("irm").value;
+      let tel = document.getElementById("tel").value;
+      let email = document.getElementById("email").value;
+      
+      if((mid.trim() == "")){
+        alert("아이디 빈칸을 채워주세요");
+        return false;
+      }
+      else if(!mid.match(regex1)){
+        alert("아이디형식에 맞게 작성하세요.(5~15자리)");
+        return false;
+      }
+
+      if((pwd.trim() == "")){
+        alert("비밀번호 빈칸을 채워주세요");
+        return false;
+      }
+      else if(!pwd.match(regex2)){
+        alert("영문자와숫자와 특수문자를 입력하세요");
+        return false;
+      }
+
+      if((irm.trim() == "")){
+        alert("이름 빈칸을 채워주세요");
+        return false;
+      }
+      else if(!irm.match(regex3)){
+        alert("이름 형식에맞게 입력하세요 (2~20자리)");
+        return false;
+      }
+      
+      if((tel.trim() == "")){
+        alert("전화번호 빈칸을 채워주세요");
+        return false;
+      }
+      else if(!tel.match(regex4)){
+        alert("전화번호 형식에 맞게 입력하세요 ");
+        return false;
+      }
+      
+      if((email.trim() == "")){
+        alert("이메일 빈칸을 채워주세요");
+        return false;
+      }
+      else if(!email.match(regex5)){
+        alert("이메일 형식에 맞게 입력하세요 ");
+        return false;
+      }
+      
+      
+      alert("회원가입이 되었습니다.")
+    }
+    
+
+  </script>
+</body>
+</html>

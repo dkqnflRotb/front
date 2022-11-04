@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>calculator.html</title>
+  <script>
+    'use strict'
+
+    function su(aaa){
+      let result = myform.result.value;
+      if(aaa == "c") {
+        myform.result.value = "";
+        demo.innerText = "";
+      }
+      else if(aaa == "+" || aaa== "-" || aaa=="*" || aaa=="/"){
+        result += aaa;
+        myform.result.value = result;
+        demo.innerText =eval(result);
+      }
+      else if(aaa != "=") {
+      
+        result += aaa;
+        myform.result.value = result;
+        
+      }
+      else {
+        
+        demo.innerText =eval(result);
+        result=eval(result)
+      }
+    }
+
+  </script>
+  <style>
+    body{
+      font-size:40px;
+      text-align:right;
+      padding:100px 0px 0px 0px;
+      text-align:bottom;
+      background-color: #000;
+    }
+    .container{
+      width: 400px;
+      margin: 0 auto;
+      display:grid;
+      grid-gap: 0rem;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-auto-rows: minmax(2em, auto);
+      background-color: #CCC;
+    }
+    input[type="button"]{
+      width: 100px;
+      height: 50px;
+      margin: 0;
+      
+      
+    }
+    input[type="text"]{
+      width:394px;
+      height:100px;
+      text-align: right;
+    }
+
+    .show {
+      width:400px;
+      height: 350px;
+      margin: 0 ;
+      display: grid;  
+      background-color: #fcd;
+    } 
+    .show-item:nth-child(10){
+      grid-column: 2;
+      grid-row: 5;      
+    }
+    .show-item:nth-child(17){
+      grid-column: 3;
+      grid-row: 5;      
+    }
+    .show-item:nth-child(18){
+      grid-column: 4;
+      grid-row: 5;      
+    }
+    
+    .show-item:nth-child(14){
+      grid-column: 4;
+      grid-row: 1;      
+    }
+    .show-item:nth-child(13){
+      grid-column: 4;
+      grid-row: 2;      
+    }
+    .show-item:nth-child(12){
+      grid-column: 4;
+      grid-row: 4;      
+    }
+    .show-item:nth-child(10){
+      grid-column: 2;
+      grid-row: 4;      
+      
+    }
+    
+    #demo{
+      height:10px;
+      margin-right: 10px;
+    }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <p>
+      <form name="myform">
+        <div id ="res" style= background-color:rgb(209,23,23)>
+          <input type="text" name="result" size="15" readonly />
+        </div>
+        <div id = "demo"></div>
+        <hr/>
+        <div class ="item show">
+          <div class =show-item><input type="button" value="1" onclick="su(1)"/></div>  
+          <div class =show-item><input type="button" value="2" onclick="su(2)"/></div>
+          <div class =show-item><input type="button" value="3" onclick="su(3)"/></div>
+          <div class =show-item><input type="button" value="4" onclick="su(4)"/></div>
+          <div class =show-item><input type="button" value="5" onclick="su(5)"/></div>
+          <div class =show-item><input type="button" value="6" onclick="su(6)"/></div>
+          <div class =show-item><input type="button" value="7" onclick="su(7)"/></div>
+          <div class =show-item><input type="button" value="8" onclick="su(8)"/></div>
+          <div class =show-item><input type="button" value="9" onclick="su(9)"/></div>
+          <div class =show-item><input type="button" value="0" onclick="su(0)"/></div>
+          <div class =show-item><input type="button" value="+" onclick="su('+')"/></div>
+          <div class =show-item><input type="button" value="-" onclick="su('-')"/></div>
+          <div class =show-item><input type="button" value="/" onclick="su('/')"/></div>
+          <div class =show-item><input type="button" value="X" onclick="su('*')"/></div>
+          <div class =show-item><input type="button" value="C" onclick="su('c')"/></div>
+          <div class =show-item><input type="button" value="." onclick="su('.')"/></div>
+          <div class =show-item><input type="button" value="지움" onclick="fCheck('<')"/></div>
+          <div class =show-item><input type="button" value="=" onclick="su('=')"/></div>
+        </div>
+      </form>  
+    </p>
+  </div>
+</body>
+</html>
