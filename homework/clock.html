@@ -18,8 +18,21 @@
       let hh = today.getHours();
       let mm = today.getMinutes();
       let ss = today.getSeconds();
-      demo.innerHTML = hh + " : " + mm + " : "+ ss;
+      // demo.innerHTML = hh + " : " + mm + " : "+ ss;
+      
+      let hhtime = ('0'+hh).slice(-1);
+      let hhtime1 = ('0'+hh).slice(-2,-1);
+      let mmtime = ('0'+mm).slice(-1);
+      let mmtime1 = ('0'+mm).slice(-2,-1);
+      let sstime = ('0'+ss).slice(-1);
+      let sstime1 = ('0'+ss).slice(-2,-1);
+      
+      demo.innerHTML = '<img src="../images/images/'+hhtime1+'.gif"/>'+'<img src="../images/images/'+hhtime+'.gif"/>시'
+      demo.innerHTML += '<img src="../images/images/'+mmtime1+'.gif"/>'+'<img src="../images/images/'+mmtime+'.gif"/>분'
+      demo.innerHTML += '<img src="../images/images/'+sstime1+'.gif"/>'+'<img src="../images/images/'+sstime+'.gif"/>초'
+      demo.innerHtML += '<img src="../images/images/'+sstime1+'.gif"/>'+'<img src="../images/images/'+sstime+'.gif"/>초'
     }
+
     function clockStart(){
       clock();
       stautusTime = setInterval(clock, 1000);
@@ -32,14 +45,16 @@
 </head>
 <body>
 <p><br/></p>
-<div class="container">
+<div class="container" style="text-align: center; width: 300px">
   <h2>인터넷 시계</h2>
   <p>
     <input type ="button" value="동작" onclick="clockStart()" class="btn btn-success"/>
     <input type ="button" value="정지" onclick="clockStop()" class="btn btn-danger"/>
   </p>
   <hr/>
-  <div id="demo"></div>
+  <div style="background-image: url('../images/clock.jpg'); width: 400px; height: 100px;">
+    <div id="demo"></div>
+  </div>
 </div>
 <p><br/></p>
 </body>
