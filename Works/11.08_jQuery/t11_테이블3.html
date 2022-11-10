@@ -13,13 +13,13 @@
     'use strict';
     $(function(){
       // 특정행을 보여주기 : 예) 텍스트필드에 입력한 금자가 들어간 행만 보여주기
-      $("#nations tbody td:contains('"+word+"')").parent().show();
-      // $('#keyword').keyup(function(){
-      //   $("#nations tbody tr").hide();
+      $('#keyword').keyup(function(){
+        $("#nations tbody tr").hide();
         
-      //   // $('#keyword').val();
-      //   let word = $(this).val();
-      // });
+        // $('#keyword').val();
+        let word = $(this).val();
+        $("#nations tbody td:contains('"+word+"')").parent().show();
+      });
     });
   </script>
 </head>
